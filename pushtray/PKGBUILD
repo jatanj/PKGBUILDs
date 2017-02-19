@@ -1,0 +1,21 @@
+pkgname="pushtray"
+pkgver="0.1.2"
+pkgrel="1"
+arch=("x86_64")
+url="https://www.github.com/jjpatel/pushtray"
+license=("GPL3")
+depends=("mono" "notify-sharp-3")
+makedepends=("fsharp")
+provides=("$pkgname")
+source=("https://github.com/jjpatel/pushtray/archive/v${pkgver}.tar.gz")
+md5sums=('e2a56dacb886ed829b02587f775f0142')
+
+build() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make build
+}
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make PREFIX="${pkgdir}/usr" install -s
+}
