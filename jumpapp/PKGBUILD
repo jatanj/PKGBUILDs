@@ -1,0 +1,21 @@
+pkgname="jumpapp"
+pkgver="0.8"
+pkgrel="1"
+arch=("i686" "x86_64")
+url="https://github.com/mkropat/jumpapp/"
+license=("MIT")
+depends=("wmctrl") 
+makedepends=("pandoc")
+provides=("$pkgname")
+source=("https://github.com/mkropat/jumpapp/archive/v${pkgver}.tar.gz")
+md5sums=('b047e7573a76343541846ff521e17953')
+
+build() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make
+}
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make DESTDIR="${pkgdir}" PREFIX="/usr" install -s
+}
