@@ -1,5 +1,5 @@
-pkgname=emacs-all-the-icons
-pkgver=2.2.0
+pkgname=emacs-all-the-icons-ttf
+pkgver=3.1.1
 pkgrel=1
 arch=("i686" "x86_64")
 url="https://github.com/domtronn/all-the-icons.el"
@@ -7,7 +7,7 @@ license=("MIT")
 depends=("emacs")
 provides=("$pkgname")
 source=("https://github.com/domtronn/all-the-icons.el/archive/${pkgver}.tar.gz")
-md5sums=('eddd255a0eb95d89b5c47d670fa30fe4')
+md5sums=('f69d7cc7e4919d253cfb299ef80ee8c0')
 
 package() {
   cd "${srcdir}/all-the-icons.el-${pkgver}"
