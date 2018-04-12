@@ -1,14 +1,14 @@
 pkgname="pushtray"
-pkgver="0.1.2"
+pkgver="0.1.3"
 pkgrel="1"
 arch=("x86_64")
 url="https://www.github.com/jjpatel/pushtray"
 license=("GPL3")
-depends=("mono" "notify-sharp-3")
-makedepends=("fsharp")
+depends=("mono" "gtk-sharp-3")
+makedepends=("fsharp" "notify-sharp-3")
 provides=("$pkgname")
 source=("https://github.com/jjpatel/pushtray/archive/v${pkgver}.tar.gz")
-md5sums=('4e9928b6f76046d0f686925a40242766')
+md5sums=('30570fe0440817f2e34208874ef1972e')
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}"
