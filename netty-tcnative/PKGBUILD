@@ -1,0 +1,22 @@
+pkgname="netty-tcnative-openssl"
+pkgver="2.0.39"
+pkgrel="1"
+arch=("x86_64")
+url="https://github.com/netty/netty-tcnative"
+license=("Apache")
+depends=("openssl" "apr")
+makedepends=("gcc")
+provides=("$pkgname")
+source=("https://github.com/netty/netty-tcnative/archive/netty-tcnative-parent-${pkgver}.Final.tar.gz")
+md5sums=('66e6a45d93f959ad22083f1a89b1afef')
+
+build() {
+    cd "${srcdir}/netty-tcnative-netty-tcnative-parent-${pkgver}.Final"
+    ./mvnw clean package -pl openssl-dynamic
+}
+
+package() {
+    cd "${srcdir}/netty-tcnative-netty-tcnative-parent-${pkgver}.Final"
+    install -Dm644 openssl-dynamic/target/native-build/target/lib/libnetty_tcnative.so "${pkgdir}"/usr/lib/libnetty_tcnative.so
+    install -Dm644 LICENSE.txt "$pkgdir"/usr/share/licenses/$pkgname/LICENSE.html
+}
